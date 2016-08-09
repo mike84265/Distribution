@@ -33,8 +33,6 @@ totalFemale = len(nameList) - totalMale
 
 nameList[0:totalMale] = myRandom.shuffle(nameList[0:totalMale])
 nameList[totalMale:] = myRandom.shuffle(nameList[totalMale:])
-for p in nameList:
-   print(p)
 
 # Start grouping/ Grouping males
 rnd = 0
@@ -71,11 +69,14 @@ while groupedFemale < totalFemale:
    groupIndex = (groupIndex+1) % 15
    groupedFemale += 1
 
+# Try and find appropriate output file name:
 num = 0
 filename = 'Result' + str(num) + '.txt'
 while os.path.isfile(filename):
    num += 1
    filename = 'Result' + str(num) + '.txt'
+
+# Write the result to a new file
 fout = open(filename,'w')
 for p in group: 
    p.sort()
